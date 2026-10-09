@@ -1,0 +1,38 @@
+{
+  "name": "ffext",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.6",
+  "engines": {
+    "bun": ">=1.3.6",
+    "node": ">=22.12.0"
+  },
+  "workspaces": {
+    "packages": [
+      "extensions/*",
+      "packages/*"
+    ],
+    "catalog": {
+      "wxt": "0.21.4"
+    }
+  },
+  "scripts": {
+    "dev": "bun run --filter @ffext/starter dev",
+    "new": "bun scripts/new-extension.ts",
+    "prepare": "bun run --filter './extensions/*' prepare",
+    "build": "bun run --filter './extensions/*' build",
+    "zip": "bun run --filter './extensions/*' zip",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit && bun run --filter './extensions/*' --filter './packages/*' typecheck",
+    "test": "bun test",
+    "check": "bun run lint && bun run typecheck && bun run test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/bun": "1.4.2",
+    "typescript": "7.0.2",
+    "web-ext": "10.7.0"
+  }
+}

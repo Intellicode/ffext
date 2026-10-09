@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Headers</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">CURRENT TAB</p>
+        <h1>Tab Headers</h1>
+        <p id="tab-title" class="tab-title">Loading tab…</p>
+      </header>
+      <form id="headers-form">
+        <fieldset id="editor" disabled>
+          <label class="toggle"><input id="enabled" type="checkbox" /> Enable headers for this tab</label>
+          <p class="hint">Adds or replaces headers on this tab’s requests, including requests to other sites.</p>
+          <div id="headers" class="headers"></div>
+          <button id="add-header" class="secondary" type="button">+ Add header</button>
+          <div class="actions">
+            <button type="submit">Apply</button>
+            <button id="apply-reload" type="button" class="secondary">Apply &amp; reload</button>
+            <button id="clear" type="button" class="quiet">Clear</button>
+          </div>
+        </fieldset>
+      </form>
+      <p id="status" role="status" aria-live="polite">Loading settings…</p>
+      <footer>Stays with this tab through navigation. Clears when the tab closes or Firefox restarts.</footer>
+    </main>
+    <template id="header-row">
+      <div class="header-row">
+        <label>Header name<input class="header-name" type="text" placeholder="X-Debug" autocomplete="off" spellcheck="false" /></label>
+        <label>Value<input class="header-value" type="text" placeholder="true" autocomplete="off" spellcheck="false" /></label>
+        <button type="button" class="remove quiet" aria-label="Remove header" title="Remove header">×</button>
+      </div>
+    </template>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
